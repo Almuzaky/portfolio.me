@@ -375,6 +375,16 @@
     </footer>
     <!--Footer Section End-->
     <script src="dist/js/script.js"></script>
-    
+    <script>
+      const scriptURL = "https://script.google.com/macros/s/AKfycbzgp1HohRMIeFCbdPl1iDqkGmZHG5nNQ3_8eG88dvWz3tvTZnKeXjbVECAcjat2GfSQ/exec";
+      const form = document.forms["portfolio-contact-form"];
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        fetch(scriptURL, { method: "POST", body: new FormData(form) })
+          .then((response) => console.log("Success!", response))
+          .catch((error) => console.error("Error!", error.message));
+      });
+    </script>
   </body>
 </html>
